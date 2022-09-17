@@ -16,6 +16,12 @@ const CardWrapper = styled.div`
   align-items: center;
   background: #fdfdfd;
 
+  @media (max-width: ${({ theme }) => theme.bp.phone}) {
+    padding: 2.4rem;
+    flex-direction: column;
+    width: 85vw;
+  }
+
   &:hover {
     transform: scale(1.01);
   }
@@ -33,6 +39,11 @@ const ImageWrapper = styled.div<Image>`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  @media (max-width: ${({ theme }) => theme.bp.phone}) {
+    width: 100%;
+    padding-top: 55%;
+  }
 `
 const ContentWrapper = styled.div`
   display: flex;
@@ -46,6 +57,12 @@ const FlexRowWrapper = styled.div`
   gap: 0.8rem;
   width: 100%;
   align-items: flex-end;
+
+  @media (max-width: ${({ theme }) => theme.bp.phone}) {
+    flex-direction: column;
+    width: min-content;
+    align-items: flex-start;
+  }
 `
 const TagsWrapper = styled.div`
   padding-top: 1.6rem;
@@ -62,18 +79,31 @@ const Tag = styled.div`
   color: black;
 `
 const Heading = styled.h2`
-  font-size: 3.2rem;
+  font-size: ${({ theme }) => theme.type.size.hd3};
   color: black;
+
+  @media (max-width: ${({ theme }) => theme.bp.phone}) {
+    font-size: ${({ theme }) => theme.type.size.lg};
+  }
 `
 const Desc = styled.p`
-  font-size: 2.4rem;
+  font-size: ${({ theme }) => theme.type.size.xl};
   line-height: 1.5;
   color: black;
+
+  @media (max-width: ${({ theme }) => theme.bp.phone}) {
+    font-size: ${({ theme }) => theme.type.size.md};
+  }
 `
+
 const Date = styled.p`
   font-size: 1.6rem;
   line-height: 1.2;
   color: #d5d5d5;
+
+  @media (max-width: ${({ theme }) => theme.bp.phone}) {
+    width: max-content;
+  }
 `
 const Link = styled.a`
   font-size: 1.6rem;
@@ -99,7 +129,11 @@ export const Card = ({
     <Link href={link} target="_blank">
       <CardWrapper>
         <ImageWrapper
-          img={img ? img : 'https://dummyimage.com/600x400/000/fff'}
+          img={
+            img
+              ? img
+              : 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80'
+          }
         />
         <ContentWrapper>
           <Heading>{title}</Heading>

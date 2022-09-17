@@ -1,10 +1,10 @@
 export default {
   type: {
     size: {
-      display: '6.7rem',
-      heading01: '5.1rem',
-      heading02: '3.8rem',
-      heading03: '2.8rem',
+      hd1: '6.7rem',
+      hd2: '5.1rem',
+      hd3: '3.8rem',
+      xl: '2.8rem',
       lg: '2.1rem',
       md: '1.6rem',
       sm: '1.2rem',
@@ -40,13 +40,11 @@ export default {
     md: '8px',
     lg: '',
   },
-  breakPoint: {
+  bp: {
     desktop4K: '2561px',
     desktopLarge: '1441px',
     desktopSmall: '1024px',
     tablet: '810px',
-    phoneLarge: '426px',
-    phoneMedium: '376px',
-    phoneSmall: '321px',
+    phone: '360px',
   },
 }

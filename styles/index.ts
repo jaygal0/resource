@@ -16,9 +16,7 @@ export const IndexMainContainer = styled.main<Main>`
   padding: 4.8rem;
   background: #e3e3e3;
 
-  @media screen and (max-width: '810px') {
-    max-width: 100vw;
-    height: 10vh;
-    background: blue;
+  @media screen and (max-width: ${({ theme }) => theme.bp.phone}) {
+    padding: 1.6rem;
   }
 `
