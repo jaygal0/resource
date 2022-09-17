@@ -5,7 +5,6 @@ import { IndexMainContainer } from '../styles'
 
 export default function Home({ resource }: { resource: any }) {
   const { data } = resource
-  console.log(data)
 
   return (
     <>
@@ -31,15 +30,15 @@ export default function Home({ resource }: { resource: any }) {
   )
 }
 
-export async function getStaticProps(context: any) {
-  let site = process.env.WEB_SITE
-  let res = await fetch(`${site}/api/`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-  let resource = await res.json()
+export async function getServerSideProps(context: any) {
+  const site = process.env.WEB_SITE
+  const res = await fetch(`${site}/api/`)
+  const resource = await res.json()
+  if (!resource) {
+    return {
+      notfound: true,
+    }
+  }
 
   return {
     props: { resource },
