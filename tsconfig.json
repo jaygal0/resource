@@ -19,10 +19,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/Highlight.js",
     "utils/dbConnect.ts",
-    "pages/api/index.js",
-    "pages/[id].tsx"
+    "pages/api/index.js"
   ],
   "exclude": ["node_modules"]
 }

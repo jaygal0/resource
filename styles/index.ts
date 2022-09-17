@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 interface Main {
-  theme: string
+  theme?: string
   background?: string
 }
 
