@@ -3,7 +3,7 @@ import React from 'react'
 import { Card } from '../components/Card'
 import { IndexMainContainer } from '../styles'
 
-export default function Home({ resource }: { resource: any }) {
+const now = ({ resource }: { resource: any }) => {
   const { data } = resource
 
   return (
@@ -30,7 +30,9 @@ export default function Home({ resource }: { resource: any }) {
   )
 }
 
-export async function getServerSideProps(context: any) {
+export default now
+
+export async function getStaticProps(context: any) {
   const site = process.env.WEB_SITE
   const res = await fetch(`${site}/api/`)
   const resource = await res.json()
@@ -42,5 +44,6 @@ export async function getServerSideProps(context: any) {
 
   return {
     props: { resource },
+    revalidate: 86400,
   }
 }
