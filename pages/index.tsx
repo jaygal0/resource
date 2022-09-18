@@ -32,7 +32,7 @@ const now = ({ resource }: { resource: any }) => {
 
 export default now
 
-export async function getStaticProps(context: any) {
+export async function getServerSideProps(context: any) {
   const site = process.env.WEB_SITE
   const res = await fetch(`${site}/api/`)
   const resource = await res.json()
@@ -44,6 +44,5 @@ export async function getStaticProps(context: any) {
 
   return {
     props: { resource },
-    revalidate: 86400,
   }
 }
